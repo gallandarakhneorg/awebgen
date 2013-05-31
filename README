@@ -1,0 +1,3 @@
+AWebGen is an offline website generator. It parses a set of files (html, php, asp) and expands the internal commands inside them. AWebGen is also able to synchronize the generated webpages with a remote FTP server, and to automatically send publication announcements (news) to a mailing list.
+
+AWebGen is used to generate the arakhne.org website.
