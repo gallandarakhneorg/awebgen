@@ -1,0 +1,24 @@
+		<tr><td valign="top"><div>
+
+			${IFFIELD:warning:<table class="contentpaneopen"><tbody><tr>
+				<td colspan="2" valign="top"><span id="warningmsg">${FIELD:warning}</span></td>
+			</tr></tbody></table>}
+
+			${IFFIELD:anchor:<a name="${FIELD:anchor}"></a>}
+
+			${IFFIELD:title:<table class="contentpaneopen"><tbody><tr>
+				<td class="contentheading" width="100%">${FIELD:title}</td>
+				<!-- td class="buttonheading" align="right" width="100%"></td -->
+			</tr></tbody></table>}
+			
+			${IFFIELD:text:
+			<table class="contentpaneopen"><tbody>
+			<tr>
+				<td colspan="2" valign="top">${FIELD:text}</td>
+			</tr>
+			</tbody></table>
+			}
+
+			<span class="article_seperator">&nbsp;</span>
+
+		</div></td></tr>

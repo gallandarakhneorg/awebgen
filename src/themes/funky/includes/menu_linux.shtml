@@ -1,0 +1,4 @@
+<tr align="left"><td><a href="${PAGE:ACER1682}" class="sublevel" ${IF:$SUBMENU_SELECTION eq 'acer1682':[id="active_menu"]}>${PAGESHORTLABEL:ACER1682}</a></td></tr>
+
+<tr align="left"><td><a href="${PAGE:VAIOAR21B}" class="sublevel" ${IF:$SUBMENU_SELECTION eq 'vaioar21b':[id="active_menu"]}>${PAGESHORTLABEL:VAIOAR21B}</a></td></tr>
+

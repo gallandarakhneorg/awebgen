@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>${DEFUSE:PAGE_TITLE=#{PAGE_TITLE}}</title>
+  <meta name="description" content="${PAGE_COMMENT}">
+
+  #{PAGE_HEADER}
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="GENERATOR" content="${DIFFERED_GENERATOR}" />
+  <meta name="keywords" content="${PAGE_KEYWORDS}">
+  <meta name="robots" content="index, follow">
+  <link rel="shortcut icon" href="${IMG}/favicon.ico">
+  <link href="${CSS_FILE}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+${DEF:MAIN_MENU_SELECTION=none}
+
+${INCLUDE:header}
+${BEGIN:content}
+
+${FOREACH:HTML(article):{
+	
+	TEXT=#{PAGE_CONTENT}
+
+}}
+
+${END:content}
+${INCLUDE:footer}
+
+</body>
+</html>

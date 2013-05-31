@@ -1,0 +1,17 @@
+<!-- CONTENT -->
+${IFMAINTENANCE:
+
+	<div style="float: right;"><strong>Site under maintenance</strong><img title="Site under maintenance" src="${THEME_IMG}/small_under_maintenance.jpg" align="top"></div>
+
+}
+
+<div id="body_content">
+
+	${INCLUDE:menu_main}
+	
+	<!-- TEXT CONTENT -->
+	<div id="body_maincontent">
+		<div class="componentheading">${PAGE_TITLE}</div>
+
+		<table class="blog" cellpadding="0" cellspacing="0">
+		<tbody>

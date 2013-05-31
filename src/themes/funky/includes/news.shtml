@@ -1,0 +1,7 @@
+	${IF:((${LOOPINDEX}%2)==0):<tr>}
+	<td valign="top" width="33%"><div id="module_top"><div class="moduletable">
+		<h3>[${FIELD:date}] ${FIELD:title}</h3>
+		<p class="newstext">${FIELD:text}
+		${IFFIELD:link: {<br />&obracket;<a href="${FIELD:link}">More&nbsp;details</a>&cbracket;} }</p>
+		</div></div></td>
+	${IF:((${LOOPINDEX}%2)==1):</tr>}

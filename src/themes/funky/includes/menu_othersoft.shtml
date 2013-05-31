@@ -1,0 +1,8 @@
+${FOREACH:SORTED(@othersofts)[${PAGESHORTLABEL:$1$} <=> ${PAGESHORTLABEL:$2$}]:{
+
+<tr align="left"><td><a href="${PAGE:$$}" class="sublevel" ${IF:($SUBMENU_SELECTION eq '$$'):id="active_menu"}>${PAGESHORTLABEL:$$}</a></td></tr>
+
+}}
+
+<tr align="left"><td><a href="${PAGE:bulk}" class="sublevel" ${IF:($SUBMENU_SELECTION eq 'bulk'):id="active_menu"}>${PAGESHORTLABEL:bulk}</a></td></tr>
+

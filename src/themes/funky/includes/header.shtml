@@ -1,0 +1,15 @@
+<!-- HEADER -->
+<div id="header">
+  <div id="header_content">
+    <div id="seitentitel"><img src="${SITE_IMG}"></div>
+    <div id="module_user3">
+      <div class="moduletable">
+        <ul id="mainlevel-nav">
+          <li><a href="${PAGE:home}" class="mainlevel-nav">${PAGELABEL:home}</a></li>
+          <li><a href="${PAGE:contact}" class="mainlevel-nav">${PAGELABEL:contact}</a></li>
+          <li><a href="${PAGE:links}" class="mainlevel-nav">${PAGELABEL:links}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>	
+</div>

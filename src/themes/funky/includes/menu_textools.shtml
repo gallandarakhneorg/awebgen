@@ -1,0 +1,6 @@
+${FOREACH:SORTED(@textools)[${PAGESHORTLABEL:$1$} <=> ${PAGESHORTLABEL:$2$}]:{
+
+<tr align="left"><td><a href="${PAGE:$$}" class="sublevel" ${IF:($SUBMENU_SELECTION eq '$$'):id="active_menu"}>${PAGESHORTLABEL:$$}</a></td></tr>
+
+}}
+

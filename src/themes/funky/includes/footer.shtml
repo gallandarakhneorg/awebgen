@@ -1,0 +1,20 @@
+<div id="body_footer">
+
+${IFDB:news:
+	<!-- PAGE FLASH -->
+	  <div id="body_footer_content">
+	    <div id="rssicon"><a href="${PAGE:rss}" class="mainlevel"><img src="${THEME_IMG}/feed.png" border="0" title="${PAGELABEL:rss}" /></a></div>
+	    <table border="0" cellspacing="5" width="100%">
+	      <tbody>
+	${FOREACH:DB(news)[0..5]}
+	      </tbody>
+	    </table>
+	  </div>
+}
+
+
+  <!-- FOOTER -->
+  <div id="footer_cp"><div style="margin: 0px auto; width: 950px; color: rgb(255, 255, 255); vertical-align: top;">${COPYRIGHT_STRING}<div style="border-top: 1px dotted rgb(255, 255, 255); color: rgb(255, 255, 255);">Page generated with the <a href="${PAGE:awebgen}">${DIFFERED_GENERATOR}</a>. Last changes: ${LAST_UPDATE_DATE}.<br>Thanks to <a href="http://www.funky-visions.de/">funky-visions.de</a> for the CSS style</div></div>
+  </div>
+
+</div>

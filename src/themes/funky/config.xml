@@ -1,0 +1,10 @@
+<AWEBGEN>
+
+<CONSTANTS>
+	<CONSTANT id="CSS_FILE"
+                  value="${ROOT}/theme/css/funky.css" />
+	<CONSTANT id="THEME_IMG"
+                  value="${ROOT}/theme/images" />
+</CONSTANTS>
+
+</AWEBGEN>

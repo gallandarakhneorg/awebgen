@@ -1,0 +1,64 @@
+	<!-- MAIN MENU -->
+	<div id="body_menue">
+		<div style="padding: 15px;">
+			<div id="module_left">
+				<div class="moduletable">
+					<h3>Main Menu</h3>				
+					<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody>
+					<tr align="left"><td><a href="${PAGE:home}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'home'):id="active_menu"}>Overview</a></td></tr>
+					<tr align="left"><td><a href="${PAGE:javatools}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'javatools'):id="active_menu"}>${PAGELABEL:javatools}</a></td></tr>
+					${IF:($MAIN_MENU_SELECTION eq 'javatools'):${INCLUDE:menu_javatools}}
+					<tr align="left"><td><a href="${PAGE:textools}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'textools'):id="active_menu"}>${PAGELABEL:textools}</a></td></tr>
+					${IF:($MAIN_MENU_SELECTION eq 'textools'):${INCLUDE:menu_textools}}
+					<tr align="left"><td><a href="${PAGE:webtools}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'webtools'):id="active_menu"}>${PAGELABEL:webtools}</a></td></tr>
+					${IF:($MAIN_MENU_SELECTION eq 'webtools'):${INCLUDE:menu_webtools}}
+					<tr align="left"><td><a href="${PAGE:systools}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'systools'):id="active_menu"}>${PAGELABEL:systools}</a></td></tr>
+					${IF:($MAIN_MENU_SELECTION eq 'systools'):${INCLUDE:menu_systools}}
+					<tr align="left"><td><a href="${PAGE:othersoft}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'othersoft'):id="active_menu"}>${PAGELABEL:othersoft}</a></td></tr>
+					${IF:($MAIN_MENU_SELECTION eq 'othersoft'):${INCLUDE:menu_othersoft}}
+					<tr align="left"><td><a href="${PAGE:linux}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'linux'):id="active_menu"}>${PAGELABEL:linux}</a></td></tr>
+					${IF:($MAIN_MENU_SELECTION eq 'linux'):${INCLUDE:menu_linux}}
+					</tbody></table>
+				</div>
+				<div class="moduletable">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody>
+					<tr align="left"><td><a href="${PAGE:download}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'download'):id="active_menu"}>${PAGELABEL:download}</a></td></tr>
+					<tr align="left"><td><a href="${PAGE:svn}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'svn'):id="active_menu"}>${PAGELABEL:svn}</a></td></tr>
+					</tbody></table>
+				</div>
+				</div>
+				<div class="moduletable">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody>
+					<tr align="left"><td><a href="${PAGE:frenchtut}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'frenchtut'):id="active_menu"}>${PAGESHORTLABEL:frenchtut}</a></td></tr>
+					</tbody></table>
+				</div>
+				<div class="moduletable">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody>
+					<tr align="left"><td><a href="${PAGE:contact}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'contact'):id="active_menu"}>${PAGELABEL:contact}</a></td></tr>
+					<tr align="left"><td><a href="${PAGE:links}" class="mainlevel" ${IF:($MAIN_MENU_SELECTION eq 'links'):id="active_menu"}>${PAGELABEL:links}</a></td></tr>
+					</tbody></table>
+				</div>
+
+${IF:($HIDE_ML_FORM ne 'true'):{
+				<!-- ML FORM -->
+				<div class="moduletable">
+					<h3>Mailing List</h3>				
+					<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody>
+					<tr align="left"><td>
+
+					<form method="post" action="${ROOT}/ml.php">
+                      Email: <input type="text" size="12" name="mail" /><br />
+		      <select name="ml">${FOREACH:SORTED(%mailinglists)[$3$ <=> $4$]:<option value="$1$">$1$@</option>}</select><br />
+		      <input style="margin-top:5px; font-size:10px;" type="submit" name="action" value="Subscribe" />
+		      <input style="margin-top:5px; font-size:10px;" type="submit" name="action" value="Unsubscribe" />
+		</form>
+
+					</td></tr>
+					</tbody></table>
+				</div>
+}}
+
+			</div>
+		</div>
+		<!-- img src="${THEME_IMG}/menue_bg_bottom.gif" style="float: left;" -->
+	</div>
