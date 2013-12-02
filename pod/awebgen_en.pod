@@ -392,6 +392,14 @@ configuration file section to define a hash table).
 is expanded to I<then_text> if the I<condition> is true (Perl operators are allowed),
 otherwise it is replaced by "" or I<else_text>.
 
+=item ${IFBOOL:I<constantName>:I<then_text>}
+
+=item ${IFBOOL:I<constantName>:I<then_text>:I<else_text>}
+
+is expanded to I<then_text> if a constant named by I<constantName> was defined
+and is equal to the boolean value "true", otherwise it is replaced by "" or
+I<else_text>.
+
 =item ${IFDB:I<dbname>:I<then_text>}
 
 =item ${IFDB:I<dbname>:I<then_text>:I<else_text>}
@@ -467,6 +475,7 @@ See the configuration file section to define the pages.
 =item ${PAGELINK:I<page_id>}
 
 is expanded by the full HTML link (with url and <a> tag) of the HTML page with the given I<page_id>.
+The label of the link is the long description of the page from the configuration.
 See the configuration file section to define the pages.
 
 =item ${PAGEPARENT:I<page_id>}
@@ -476,6 +485,12 @@ is expanded by the identifier of the parent page.
 =item ${PAGESHORTLABEL:I<page_id>}
 
 is expanded by the short name of the HTML page with the given I<page_id>.
+See the configuration file section to define the pages.
+
+=item ${PAGESHORTLINK:I<page_id>}
+
+is expanded by the full HTML link (with url and <a> tag) of the HTML page with the given I<page_id>.
+The label of the link is the short description of the page from the configuration.
 See the configuration file section to define the pages.
 
 =item ${PROVIDE:I<name>=I<value>}

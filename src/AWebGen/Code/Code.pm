@@ -22,7 +22,7 @@ package AWebGen::Code::Code;
 @EXPORT_OK = qw( %INSTRUCTIONS %HTML_CONSTANTS %FIELD_INSTRUCTIONS );
 use strict;
 use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION %INSTRUCTIONS %HTML_CONSTANTS %FIELD_INSTRUCTIONS );
-my $VERSION = "5.0" ;
+my $VERSION = "6.0" ;
 
 use Carp;
 use File::Spec;
@@ -114,6 +114,10 @@ our %INSTRUCTIONS = (
 				'expandparams' => TRUE,
 				'run' => "run_IF",
 				'includedefs' => TRUE },
+	'IFBOOL' => {		'proto' => '$($:#[:#])',
+				'expandparams' => TRUE,
+				'run' => "run_IFBOOL",
+				'includedefs' => TRUE },
 	'IFDB' => {		'proto' => '$($:#[:#])',
 				'expandparams' => TRUE,
 				'run' => "run_IFDB" },
@@ -146,6 +150,8 @@ our %INSTRUCTIONS = (
 				'run' => "run_PAGEPARENT" },
 	'PAGESHORTLABEL' => {	'proto' => '$($)',
 				'run' => "run_PAGESHORTLABEL" },
+	'PAGESHORTLINK' => {	'proto' => '$($[:$])',
+				'run' => "run_PAGESHORTLINK" },
 	'PROVIDE' => { 		'proto' => '#($=#)',
 				'run' => "run_PROVIDE",
 				'includedefs' => TRUE },
@@ -646,6 +652,16 @@ sub run_IFDEF {
 	return AWebGen::Code::Exec::codeReplaceInLocalContext($localContext,$code);
 }
 
+sub run_IFBOOL {
+	my $localContext = shift || confess('no local context');
+	my $varname = shift || confess("no variable name code");
+	my $thenCode = shift || '';
+	my $elseCode = shift || '';
+	my $value = getLCConstant($localContext,"$varname");
+	my $code = (defined($value) && (lc($value) eq 'true')) ? "$thenCode" : "$elseCode";
+	return AWebGen::Code::Exec::codeReplaceInLocalContext($localContext,$code);
+}
+
 sub run_IFDB {
 	my $localContext = shift || confess('no local context');
 	my $database = shift || confess('no database name');
@@ -791,6 +807,28 @@ sub run_PAGELINK {
 		unless ($outputType eq 'html');
 	my $url = getLCPageUrl($localContext,$pageId);
 	my $label = getLCPageLabel($localContext,$pageId);
+	if ($url) {
+		$label = $url unless ($label);
+		if ($outputType eq 'html') {
+			return "<a href=\"$url\">$label</a>";
+		}
+	}
+	elsif ($label) {
+		return "$label";
+	}
+	return "";
+}
+
+sub run_PAGESHORTLINK {
+	my $localContext = shift || confess('no local context');
+	my $pageId = shift || confess('no pageId');
+	my $outputType = lc(shift || 'html');
+	$pageId =~ s/^\s+//;
+	$pageId =~ s/\s+$//;
+	croak("invalid output type '$outputType'. Supported are: html")
+		unless ($outputType eq 'html');
+	my $url = getLCPageUrl($localContext,$pageId);
+	my $label = getLCPageShortLabel($localContext,$pageId);
 	if ($url) {
 		$label = $url unless ($label);
 		if ($outputType eq 'html') {
