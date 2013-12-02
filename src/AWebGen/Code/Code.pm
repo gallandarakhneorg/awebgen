@@ -1,4 +1,4 @@
-# (C) 2008-09  Stephane Galland <galland@arakhne.org>
+# (C) 2008-13  Stephane Galland <galland@arakhne.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

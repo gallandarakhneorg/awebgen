@@ -1,4 +1,4 @@
-# Copyright (C) 2008-2010  Stephane Galland <galland@arakhne.org>
+# Copyright (C) 2008-2013  Stephane Galland <galland@arakhne.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ package AWebGen::Release;
 @EXPORT_OK = qw();
 use strict;
 use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
-my $VERSION = "7.1" ;
+my $VERSION = "8.0" ;
 
 #------------------------------------------------------
 #
@@ -33,7 +33,7 @@ my $VERSION = "7.1" ;
 #------------------------------------------------------
 
 my $AWEBGEN_VERSION      = $VERSION ;
-my $AWEBGEN_DATE         = '2011/02/28' ;
+my $AWEBGEN_DATE         = '2013/12/02' ;
 my $AWEBGEN_BUG_URL      = 'mailto:bugreport@arakhne.org' ;
 my $AWEBGEN_AUTHOR       = 'Stephane GALLAND' ;
 my $AWEBGEN_AUTHOR_EMAIL = 'galland@arakhne.org' ;
