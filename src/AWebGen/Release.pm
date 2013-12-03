@@ -24,7 +24,7 @@ package AWebGen::Release;
 @EXPORT_OK = qw();
 use strict;
 use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
-my $VERSION = "8.0" ;
+my $VERSION = "8.1" ;
 
 #------------------------------------------------------
 #
@@ -33,7 +33,7 @@ my $VERSION = "8.0" ;
 #------------------------------------------------------
 
 my $AWEBGEN_VERSION      = $VERSION ;
-my $AWEBGEN_DATE         = '2013/12/02' ;
+my $AWEBGEN_DATE         = '2013/12/03' ;
 my $AWEBGEN_BUG_URL      = 'mailto:bugreport@arakhne.org' ;
 my $AWEBGEN_AUTHOR       = 'Stephane GALLAND' ;
 my $AWEBGEN_AUTHOR_EMAIL = 'galland@arakhne.org' ;

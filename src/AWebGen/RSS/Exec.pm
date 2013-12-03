@@ -22,7 +22,7 @@ package AWebGen::RSS::Exec;
 @EXPORT_OK = qw();
 use strict;
 use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
-my $VERSION = "1.0" ;
+my $VERSION = "2.0" ;
 
 use Carp;
 
@@ -79,7 +79,9 @@ sub generateRSS($$) {
 	print RSS "    <title>".cleanString(getLCConstant($localContext,'SITE_NAME'))."</title>\n";
 	print RSS "    <description>News for the ".cleanString(getLCConstant($localContext,'SITE_NAME'))." community</description>\n";
 	print RSS "    <lastBuildDate>".cleanString('###LAST_UPDATE_CHANGE###')."</lastBuildDate>\n";
+	print RSS "    <pubDate>".cleanString('###LAST_UPDATE_CHANGE###')."</pubDdate>\n";
 	print RSS "    <link>".cleanString(getLCConstant($localContext,'SITE_URL'))."</link>\n";
+	print RSS "    <ttl>1440</ttl>\n";
 
 	
 	# Force the ${ROOT} to be prefixed by the URL
