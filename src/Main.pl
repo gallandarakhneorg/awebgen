@@ -166,12 +166,6 @@ while (my ($abspath, $sitepath) = each(%copiedfiles)) {
 	}
 }
 
-# Generate the RSS
-if (getCmdLineOpt('rss')) {
-	verb(1,"Generating RSS flow for '".getCmdLineOpt('rss')."'");
-	generateRSS(getCmdLineOpt('rss'), getConstant('NEWS_DB'));	
-}
-
 # Generate the default scripts if necessary
 if (getCmdLineOpt('autoscript')) {
 	phppage_generate(%copiedfiles);
@@ -187,10 +181,20 @@ synchronizeLocalChecksumDates(%pageChecksums, %currentPageChecksums);
 # Replace differed constants
 verb(1,"Finalizing pages");
 while (my ($abspath, $sitepath) = each(%copiedfiles)) {
-	if ((($sitepath =~ /\.html$/)||(($sitepath =~ /\.shtml$/))||(($sitepath =~ /\.php$/)))
+	if ((($sitepath =~ /\.html$/)||($sitepath =~ /\.shtml$/)||($sitepath =~ /\.php$/))
             &&(isExpandableFile($sitepath))) {
 		verb(2,"Finalizing $abspath");
 		replaceMirroringVariablesInFile("$abspath","$sitepath",%pageChecksums);
+	}
+}
+
+# Generate the RSS
+if (getCmdLineOpt('rss')) {
+	verb(1,"Generating RSS flow for '".getCmdLineOpt('rss')."'");
+	my ($absFile, $rssFile) = generateRSS(getCmdLineOpt('rss'), getConstant('NEWS_DB'));
+	if ($absFile && $rssFile) {
+		verb(2,"Finalizing $absFile");
+		replaceMirroringVariablesInFile("$absFile","$rssFile",%pageChecksums);
 	}
 }
 

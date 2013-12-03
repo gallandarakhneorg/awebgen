@@ -22,7 +22,7 @@ package AWebGen::Mirror::MirrorVariables;
 @EXPORT_OK = qw();
 use strict;
 use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
-my $VERSION = "2.0" ;
+my $VERSION = "3.0" ;
 
 use Carp;
 use File::Basename;
@@ -64,7 +64,6 @@ sub replaceMirroringVariablesInFile($$\%) {
 	my $filename = shift;
 	my $sitepath = shift;
 	my $content = readFile("$filename");
-
 	replaceMirroringVariables($content, $sitepath, %{$_[0]});
 	writeFile("$filename", "$content");
 }

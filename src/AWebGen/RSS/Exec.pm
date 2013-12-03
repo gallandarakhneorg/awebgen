@@ -56,6 +56,7 @@ sub cleanString($) {
 # Generate RSS flow
 # $_[0] : name of the rss output file
 # $_[1] : name of the news database
+# Return: the array (absolute file, relative file) of the generated RSS.
 sub generateRSS($$) {
 	my $rssName = shift || croak('no rss name');
 	my $dbName = shift || croak('no news database');
@@ -78,8 +79,8 @@ sub generateRSS($$) {
 	print RSS "  <channel>\n";
 	print RSS "    <title>".cleanString(getLCConstant($localContext,'SITE_NAME'))."</title>\n";
 	print RSS "    <description>News for the ".cleanString(getLCConstant($localContext,'SITE_NAME'))." community</description>\n";
-	print RSS "    <lastBuildDate>".cleanString('###LAST_UPDATE_CHANGE###')."</lastBuildDate>\n";
-	print RSS "    <pubDate>".cleanString('###LAST_UPDATE_CHANGE###')."</pubDdate>\n";
+	print RSS "    <lastBuildDate>".cleanString('###LAST_UPDATE_DATE###')."</lastBuildDate>\n";
+	print RSS "    <pubDate>".cleanString('###LAST_UPDATE_DATE###')."</pubDdate>\n";
 	print RSS "    <link>".cleanString(getLCConstant($localContext,'SITE_URL'))."</link>\n";
 	print RSS "    <ttl>1440</ttl>\n";
 
@@ -131,6 +132,7 @@ sub generateRSS($$) {
 	print RSS "</rss>\n";
 	close(*RSS);
 
+	return ($filename, $sitepath);
 }
 
 1;
