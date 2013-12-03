@@ -491,6 +491,7 @@ sub codeReplaceInFile($$) {
 	$content = codeReplaceInTopContext($sitepath,$content);
 
 	# Cleaning HTML
+	$content =~ s/\Q<!--\E(\[.*?\]\>.*?)\Q-->\E/\&shtmlcomment;$1\&ehtmlcomment;/sg;
 	$content =~ s/\Q<!--\E.*?\Q-->\E//sg;
 	$content =~ s/^\s+//mg;
 	$content =~ s/\s+$//mg;
