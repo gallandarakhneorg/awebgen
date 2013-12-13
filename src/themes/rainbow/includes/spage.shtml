@@ -1,0 +1,96 @@
+${PROVIDE:CURRENTPAGEID=home}
+${PROVIDE:PAGE_TITLE=${PAGELABEL:${CURRENTPAGEID}}}
+${PROVIDE:PAGE_TITLE=${SITE_NAME}}
+
+${INCLUDE:macros}
+
+<!DOCTYPE html>
+<html xml:lang="${DEFAULT_LANG}" lang="${DEFAULT_LANG}">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta charset="UTF-8" />
+		<meta name="author" content="${AUTHOR}" />
+		<meta name="keywords" content="${PAGE_KEYWORDS}" />
+		<meta name="description" content="${PAGE_COMMENT}" />
+		<meta name="robots" content="index, follow" />
+		<meta name="generator" content="${DIFFERED_GENERATOR}" />
+		<meta name="copyright" content="${SITE_NAME}" />
+		<meta name="Rev" content="${ADMIN_EMAIL}" />
+		<meta http-equiv="Content-Language" content="${DEFAULT_LANG}" />
+
+		<!-- Microsoft invented the MobileOptimized META tag to control
+		     the layout width for mobile markup rendered in Internet 
+		     Explorer Mobile. The content of the meta tag is an integer
+		     width in pixels. In IE Mobile, the presence of this META tag
+		     forces a single-column layout at the specified width, preventing
+		     the browser from modifying the layout to "fit" the mobile screen. -->
+		<!-- <meta name="MobileOptimized" content="${PREFERRED_PAGE_WIDTH}" /> -->
+		<!-- The HandheldFriendly META tag identifies mobile-optimized markup.
+		     The value of the META tag is "true" for mobile markup and "false"
+		     for desktop-optimized HTML. -->
+		<meta name="HandheldFriendly" content="false" />
+		<!-- The Viewport META tag controls the logical dimensions and scaling of
+		     the browser viewport window in many smartphone browsers. -->
+		<!-- <meta name="viewport" content="width=device-width,height=device-height,user-scalable=yes" /> -->
+
+		<link rel="stylesheet" href="${CSS_RESET_FILE}" type="text/css" media="all" />
+		<link rel="stylesheet" href="${CSS_FILE}" type="text/css" media="all" />
+		<!-- <link rel="icon" href="${IMG}/favicon.ico" /> -->
+		<!-- <link rel="shortcut icon" href="${IMG}/favicon.ico" /> -->
+		<link href="${PAGE:rss}" rel="alternate" type="application/rss+xml" title="What's New on ${SITE_NAME}" />
+		<title>${REMOVETAGS:{${PAGE_TITLE}}}</title>
+	</head>
+	<body onload="window.defaultStatus=&#39;${REMOVETAGS:{${PAGE_TITLE}}}&#39;;" id="${CURRENTPAGEID}">
+		<header>
+			<div class="container">
+				<div class="title">
+					<h1><a href="${ROOT}">${SITE_NAME}</a></h1>
+					<h2><a href="${ROOT}">Subtitle</a></h2>
+					<h3><a href="${ROOT}">Subsubtitle</a></h3>
+				</div>
+
+				<nav>
+					<ul>
+						<li><a href="${PAGE:page1}">Page 1</a>
+							<ul>
+${FOREACH:SORTED(@section1)[${PAGELABEL:$1$} <=> ${PAGELABEL:$2$}]:{
+							<li>${PAGESHORTLINK:$$}</li>
+}}
+							</ul></li>
+						<li><a href="${PAGE:page2}">Page 2</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<div class="maincontent">
+				<div class="pagecontent">
+
+					<div class="sidebox">
+						<div class="frame">
+							<div class="frametitle">Side box</div>
+							<ul>
+							<li>Line 1</li>
+							<li>Line 2</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="pagecontenttitle">${PAGE_TITLE}</div>
+
+<!--[if lt IE 9]>
+<div class="errormessage">To have a better experience on ${SITE_NAME}, we recommend to use a modern browser (<a href="https://www.google.com/intl/us/chrome/browser/">Chrome</a>, <a href="http://www.mozilla.org/firefox/">Firefox</a>).</div>
+<![endif]-->
+
+${IFMAINTENANCE:
+	${DEF:MAINTENANCE_MESSAGE=<p><strong>Site under maintenance</strong><img title="Site under maintenance" src="${UNDER_MAINTENANCE_PICTURE}" align="center"></p>}
+	${IFDEF:TOP_MESSAGE:
+		${DEF:TOP_MESSAGE=${TOP_MESSAGE}${MAINTENANCE_MESSAGE}}:
+		${DEF:TOP_MESSAGE=${MAINTENANCE_MESSAGE}}}
+}
+
+${IFDEF:ALERT_MESSAGE:{
+	<div class="errormessage">${ALERT_MESSAGE}</div>
+}}
+
+

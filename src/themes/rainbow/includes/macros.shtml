@@ -1,0 +1,22 @@
+${DEFMACRO:GOTOBUTTON($url,$label)=<a href="$url" class="button bluegray">
+	<span class="goto">
+		<span class="arrow"></span>
+		<span class="arrowShadow"></span>
+	</span>
+	<span class="bar"></span><span class="text">$label</span></a>}
+
+
+${DEFMACRO:DOWNLOADBUTTON($url,$label)=<a href="$url" class="button bluegray">
+	<span class="arrow">
+		<span class="top"></span>
+		<span class="bottom"></span>
+		<span class="bottomShadow"></span>
+	</span>
+	<span class="bar"></span><span class="text">$label</span></a>}
+
+
+${DEFMACRO:SIDEGOTOBUTTON($url,$label)=<div class="noframe">${GOTOBUTTON:{$url}:{$label}}</div>}
+
+
+${DEFMACRO:SIDEDOWNLOADBUTTON($url,$label)=<div class="noframe">${DOWNLOADBUTTON:{$url}:{$label}}</div>}
+

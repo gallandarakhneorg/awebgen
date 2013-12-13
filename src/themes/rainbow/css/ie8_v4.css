@@ -1,0 +1,9 @@
+/*****************************************************************/
+/** Side box **/
+
+div.sidebox {
+	display: inline-block;
+	float: none;
+	position: relative;
+}
+

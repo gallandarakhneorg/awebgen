@@ -1,0 +1,15 @@
+			</div>
+		</div>
+
+		<footer>
+			<div class="container">
+				<div class="copyright">
+					${COPYRIGHT_STRING}, All right reserved.
+					<br/>
+					Page generated with <a href="${PAGE:awebgen}">${DIFFERED_GENERATOR}</a> &middot;
+					Last changes: ${LAST_UPDATE_DATE}
+				</div>
+			</div>
+		</footer>
+</body>
+</html>

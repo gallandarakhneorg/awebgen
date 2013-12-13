@@ -1,0 +1,10 @@
+${DEF:PAGE_TITLE=#{PAGE_TITLE}}
+${DEF:PAGE_HEADER=#{PAGE_HEADER}}
+
+${BEGIN:page}
+${FOREACH:HTML(section):{
+	
+	TEXT=#{PAGE_CONTENT}
+
+}}
+${END:page}

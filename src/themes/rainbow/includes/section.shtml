@@ -1,0 +1,3 @@
+	${IFFIELD:title:<h1${IFFIELD:anchor: id="${FIELD:anchor}"}>${FIELD:title}</h1>}
+	${IFFIELD:text:<p>${FIELD:text}</p>}
+
