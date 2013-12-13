@@ -83,6 +83,15 @@ sub installStyleFrom($$) {
 			copyDir("$imageDir","$tDir") or die("$imageDir: $!\n");
 		}
 
+		my $fontDir = File::Spec->catfile("$themeDir", "fonts");
+		if (-d "$fontDir") {
+			verb(2, "Installing font files");
+			my $tDir = File::Spec->catfile("$targetDir","fonts");
+			if ( ! -d "$tDir" ) {
+				mkpath(["$tDir"], 0, 0700) or confess("mkpath|$tDir: $!\n");
+			}
+			copyDir("$imageDir","$tDir") or die("$imageDir: $!\n");
+		}
 		my $configFile = File::Spec->catfile("$themeDir", "config.xml");
 		if (-f "$configFile") {
 			verb(2, "Installing configuration file");
