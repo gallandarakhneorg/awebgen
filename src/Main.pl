@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# Copyright (C) 2008-09  Stephane Galland <galland@arakhne.org>
+# Copyright (C) 2008-13  Stephane Galland <galland@arakhne.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -95,6 +95,12 @@ if (getCmdLineOpt('version')) {
 	getVersionDate() =~ /^\s*([0-9]+)\s*\//;
 	my $year = "$1";
 	print "Copyright (c) 2008-$year ".getAuthorName()." <".getAuthorEmail().">\n";
+	exit(0);
+}
+
+# Test if the styles may be listed
+if (getCmdLineOpt('stylelist')) {
+	displayStyleTemplates();
 	exit(0);
 }
 

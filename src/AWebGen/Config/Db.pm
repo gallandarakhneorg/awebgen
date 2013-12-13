@@ -1,4 +1,4 @@
-# Copyright (C) 2008-09  Stephane Galland <galland@arakhne.org>
+# Copyright (C) 2008-13  Stephane Galland <galland@arakhne.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ package AWebGen::Config::Db;
 @EXPORT_OK = qw();
 use strict;
 use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
-my $VERSION = "2.1" ;
+my $VERSION = "3.0" ;
 
 use Carp;
 use File::Basename;
@@ -129,6 +129,7 @@ sub parseCmdLine() {
 			 'announce=s' => \$CMDLINEOPTS{'announce'},
 			 'noannounce' => sub { delete $CMDLINEOPTS{'announce'}; },
 			 'style=s' => \$CMDLINEOPTS{'style'},
+			 'stylelist' => \$CMDLINEOPTS{'stylelist'},
 			 'version' => \$CMDLINEOPTS{'version'},
 		)) {
 		exit(1);

@@ -1,3 +1,5 @@
+=encoding UTF-8
+
 =head1 NAME
 
 AWebGen - Arakhnê Web Generator
@@ -51,6 +53,10 @@ Generate or do not generate a RSS file, and change its name to "I<filename>.rss"
 =item B<--style>=I<name>
 
 Install the given style into the current directory. If this option is given, no website generation is proceeded.
+
+=item B<--stylelist>
+
+Display the list of the style templates that are provided by AWebGen.
 
 =item B<--test>
 

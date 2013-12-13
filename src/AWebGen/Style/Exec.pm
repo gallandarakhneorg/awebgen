@@ -1,4 +1,4 @@
-# Copyright (C) 2009  Stephane Galland <galland@arakhne.org>
+# Copyright (C) 2009-13  Stephane Galland <galland@arakhne.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,11 +18,11 @@
 package AWebGen::Style::Exec;
 
 @ISA = ('Exporter');
-@EXPORT = qw( &installStyle ) ;
+@EXPORT = qw( &installStyle &displayStyleTemplates ) ;
 @EXPORT_OK = qw();
 use strict;
 use vars qw(@ISA @EXPORT @EXPORT_OK $VERSION);
-my $VERSION = "0.1" ;
+my $VERSION = "1.0" ;
 
 use Carp;
 use File::Spec;
@@ -92,6 +92,7 @@ sub installStyleFrom($$) {
 			}
 			copyDir("$imageDir","$tDir") or die("$imageDir: $!\n");
 		}
+
 		my $configFile = File::Spec->catfile("$themeDir", "config.xml");
 		if (-f "$configFile") {
 			verb(2, "Installing configuration file");
@@ -119,6 +120,24 @@ sub installStyle($) {
 	}
 
 	return TRUE;
+}
+
+sub displayStyleTemplates() {
+	my $scriptDir = getScriptDir();
+	my $themeDir = File::Spec->catfile("$scriptDir", "themes");
+	local *DIR;
+	my @styles = ();
+	opendir(*DIR, "$themeDir") or die("$themeDir: $!\n");
+	while (my $file = readdir(*DIR)) {
+		if ($file ne File::Spec->curdir() && $file ne File::Spec->updir()) {
+			push @styles, $file;
+		}
+	}
+	closedir(*DIR);
+	@styles = sort @styles;
+	for my $s (@styles) {
+		print "$s\n";
+	}
 }
 
 1;
